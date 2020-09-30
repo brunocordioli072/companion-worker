@@ -1,0 +1,20 @@
+service: companion-worker
+provider:
+  name: aws
+  stage: prod
+  runtime: nodejs12.x
+    
+functions:
+  app:
+    handler: src/server.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 8080
