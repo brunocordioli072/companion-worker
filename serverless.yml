@@ -12,6 +12,7 @@ functions:
       - http: 'ANY {proxy+}'
 
 plugins:
+  - serverless-dotenv-plugin
   - serverless-plugin-typescript
   - serverless-offline
 
