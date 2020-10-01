@@ -9,8 +9,6 @@ import serverless from "serverless-http";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import dotenv from "dotenv";
-dotenv.config();
 
 const isDev = process.env.NODE_ENV === "dev";
 if (isDev) {
