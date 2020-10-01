@@ -39,7 +39,7 @@ app.use(function (req: Request, res: Response, next: NextFunction) {
   next(err);
 });
 
-if (!isProduction) {
+if (isDev) {
   app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
     console.log(err.stack);
 
