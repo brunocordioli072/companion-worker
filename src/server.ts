@@ -5,20 +5,20 @@ import {
   Errback,
   ErrorRequestHandler,
 } from "express";
-import serverless from "serverless-http"
+import serverless from "serverless-http";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 
-const isProduction = process.env.NODE_ENV === "prod";
-if (isProduction) {
-  process.env.VIEW_URL = process.env.VIEW_URL_PROD;
-  process.env.REDIRECT_URI = `${process.env.API_URL_PROD}/auth/spotify/callback`;
-} else {
+const isDev = process.env.NODE_ENV === "dev";
+if (isDev) {
   process.env.VIEW_URL = process.env.VIEW_URL_DEV;
   process.env.REDIRECT_URI = `${process.env.API_URL_DEV}/auth/spotify/callback`;
+} else {
+  process.env.VIEW_URL = process.env.VIEW_URL_PROD;
+  process.env.REDIRECT_URI = `${process.env.API_URL_PROD}/auth/spotify/callback`;
 }
 
 const app = express();
