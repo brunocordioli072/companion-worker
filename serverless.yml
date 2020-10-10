@@ -18,4 +18,5 @@ plugins:
 
 custom:
   serverless-offline:
+    lambdaPort: 3001
     httpPort: 8080
