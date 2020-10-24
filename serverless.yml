@@ -1,7 +1,7 @@
 service: companion-worker
 provider:
   name: aws
-  stage: prod
+  stage: "${opt:stage, 'local'}"
   runtime: nodejs12.x
     
 functions:

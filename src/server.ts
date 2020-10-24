@@ -10,7 +10,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 
-const isDev = process.env.NODE_ENV === "dev";
+const isDev = process.env.NODE_ENV != "prod";
 if (isDev) {
   process.env.VIEW_URL = process.env.VIEW_URL_DEV;
   process.env.REDIRECT_URI = `${process.env.API_URL_DEV}/auth/spotify/callback`;
