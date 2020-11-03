@@ -1,0 +1,16 @@
+{
+    "node_env": {
+        "local": {
+            "VIEW_URL": "http://localhost:3000",
+            "REDIRECT_URI": "http://localhost:8080/local/auth/spotify/callback"
+        },
+        "prod": {
+            "VIEW_URL": "http://localhost:3000",
+            "REDIRECT_URI": "http://localhost:8080/local/auth/spotify/callback"
+        }
+    },
+    "spotify": {
+        "CLIENT_ID": "17f40721f10d49b4b702a3c2cc9bfd33",
+        "CLIENT_SECRET": "ecb09986b7404999b02a7f15119045db"
+    }
+}

@@ -7,6 +7,7 @@ WORKDIR /worker
 COPY ./package.json ./package-lock.json ./
 RUN npm install -g serverless
 RUN npm install
+ENV NODE_ENV "local"
 
 COPY . .
 

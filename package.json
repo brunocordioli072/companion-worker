@@ -6,22 +6,32 @@
     "start:local": "nodemon --exec serverless offline --host 0.0.0.0",
     "start:dev": "nodemon --exec serverless offline",
     "dev": "nodemon ./src/app.js",
-    "test": "newman run ./tests/api-tests.postman.json -e ./tests/env-api-tests.postman.json"
+    "test": "newman run ./tests/api-tests.postman.json -e ./tests/env-api-tests.postman.json",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/config": "0.0.36",
     "@types/cors": "^2.8.7",
     "@types/lodash": "^4.14.161",
     "@types/morgan": "^1.9.1",
     "@types/node": "^14.11.2",
     "@types/request": "^2.48.5",
+    "gts": "^3.0.2",
     "serverless-dotenv-plugin": "^3.0.0",
     "serverless-offline": "^6.8.0",
     "typescript": "^4.0.3"
   },
   "dependencies": {
     "class-validator": "^0.12.2",
+    "config": "^3.3.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
