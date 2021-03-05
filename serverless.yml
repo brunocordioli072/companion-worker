@@ -1,0 +1,22 @@
+service: companion-worker
+provider:
+  name: aws
+  stage: "${opt:stage, 'local'}"
+  runtime: nodejs12.x
+    
+functions:
+  app:
+    handler: src/server.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-plugin-typescript
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    lambdaPort: 3001
+    httpPort: 8080
