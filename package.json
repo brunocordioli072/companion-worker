@@ -23,6 +23,7 @@
     "@types/morgan": "^1.9.1",
     "@types/node": "^14.11.2",
     "@types/request": "^2.48.5",
+    "@types/spotify-web-api-node": "^5.0.2",
     "gts": "^3.0.2",
     "serverless-dotenv-plugin": "^3.0.0",
     "serverless-offline": "^6.8.0",
@@ -37,6 +38,7 @@
     "reflect-metadata": "^0.1.13",
     "request": "^2.88.2",
     "serverless-http": "^2.6.0",
-    "serverless-plugin-typescript": "^1.1.9"
+    "serverless-plugin-typescript": "^1.1.9",
+    "spotify-web-api-node": "^5.0.2"
   }
 }
