@@ -10,6 +10,7 @@ const spotifyAPI = new SpotifyWebApi({
 });
 
 router.get('/login', async (req: Request, res: Response) => {
+  const redirect_uri = req.query.redirect_uri || '';
   const generateRandomString = function (length) {
     let text = '';
     const possible =
@@ -38,7 +39,7 @@ router.get('/login', async (req: Request, res: Response) => {
     'response_type=code&' +
     `client_id=${process.env.SPOTIFY_CLIENT_ID}&` +
     `scope=${scope}&` +
-    `redirect_uri=${process.env.REDIRECT_URI}&` +
+    `redirect_uri=${redirect_uri}&` +
     `state=${state}`;
   res.send(response);
 });
