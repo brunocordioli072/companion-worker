@@ -6,7 +6,6 @@ const router = express.Router();
 const spotifyAPI = new SpotifyWebApi({
   clientId: process.env.SPOTIFY_CLIENT_ID,
   clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-  redirectUri: process.env.REDIRECT_URI,
 });
 
 router.get('/login', async (req: Request, res: Response) => {
@@ -45,8 +44,9 @@ router.get('/login', async (req: Request, res: Response) => {
 });
 
 router.get('/credentials', async (req: Request, res: Response) => {
+  const redirect_uri = req.query.redirect_uri || '';
   const code = `${req.query.code}` || '';
-  console.log(code);
+  spotifyAPI.setRedirectURI(`${redirect_uri}`);
   try {
     const response = await spotifyAPI.authorizationCodeGrant(code);
     res.send(response);
