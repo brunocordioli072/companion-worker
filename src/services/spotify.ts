@@ -55,4 +55,16 @@ router.get('/credentials', async (req: Request, res: Response) => {
   }
 });
 
+router.get('/credentials/refresh', async (req: Request, res: Response) => {
+  const refresh_token = req.query.refresh_token || '';
+  console.log('refresh_token', refresh_token);
+  spotifyAPI.setRefreshToken(`${refresh_token}`);
+  try {
+    const response = await spotifyAPI.refreshAccessToken();
+    res.send(response);
+  } catch (e) {
+    console.log(e);
+  }
+});
+
 export default router;
